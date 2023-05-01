@@ -1,3 +1,6 @@
+provider "aws" {}
+
+
 # Creating Web Traffic Security Group
 resource "aws_security_group" "web_traffic" {
     
