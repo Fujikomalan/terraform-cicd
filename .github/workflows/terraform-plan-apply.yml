@@ -3,7 +3,6 @@ on:
     branches:
       - main
 
-node-version: '16'
 
 jobs:
   terraform:
@@ -21,9 +20,21 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.4.0
-      - name: Example Step
-        run: |
-          terraform version
-          which terraform
-          pwd
-          ls -al
+          
+          
+      - name: Terraform Validate
+        run: terraform validate
+        working-directory: .
+        
+        
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan
+        working-directory: .
+        
+        
+      - name: Terraform Apply
+        run: terraform apply 
+        working-directory: .
+        env:
+          TF_APPLY: "true"
