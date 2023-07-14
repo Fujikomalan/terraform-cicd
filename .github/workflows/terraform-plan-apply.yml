@@ -16,30 +16,27 @@ jobs:
       - name: Checkout Terraform Code
         uses: actions/checkout@v2
         
-      - name: Terraform Init
+      - name: Terraform Installation
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.4.0
      
+      - name: Terraform fmt
+        run: terraform init
+        working-directory: .
+            
+            
       - name: Terraform init
         run: terraform init
         working-directory: .
         
-        
-        
-      - name: Build and Test
-        run: |
-          ls -al
-          terraform version
-          pwd
           
       - name: Terraform Validate
         run: terraform validate
         working-directory: .
         
-        
+
       - name: Terraform Plan
-        id: plan
         run: terraform plan
         working-directory: .
         
