@@ -45,3 +45,6 @@ jobs:
         run: terraform apply -auto-approve
         working-directory: .
  
+      - name: post
+        run: uptime
+        working-directory: .
