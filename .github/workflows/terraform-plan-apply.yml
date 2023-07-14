@@ -2,9 +2,6 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - '.github/workflows/**'
-
 jobs:
   terraform:
     runs-on: ubuntu-latest
